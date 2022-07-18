@@ -21,8 +21,8 @@ global bot_msg
 TESTING_GUILD_ID = 00000000000000000
 my_token = "my_token"
 channel_id = 00000000000000000
-og_id = 00000000000000000
-whitelist_id = 00000000000000000
+role_1 = 00000000000000000
+role_2 = 00000000000000000
 bot_msg = None
 spreadsheet_id = "spreadsheet_id"
 list_sheet_id = 0
@@ -165,7 +165,7 @@ async def on_ready():
     view = Wallet()
     embed = nextcord.Embed(title="Wallet Submission", color=nextcord.Color.blurple())
     embed.description=("Click the buttons below to submit and check your wallet address.")
-    # embed.add_field(name="Valid Roles: ", value=f"<@&{og_id}> <@&{whitelist_id}>", inline=False)
+    embed.add_field(name="Valid Roles: ", value=f"<@&{role_1}> <@&{role_2}>", inline=False)
 
     channel = bot.get_channel(channel_id)
 
@@ -196,12 +196,12 @@ class Wallet_Input(nextcord.ui.Modal):
         role_str = ""
         amount = 0
         for role in interaction.user.roles:
-            if role.id == whitelist_id:
+            if role.id == role_2:
                 role_str = "Role 1"
                 amount = 2
                 missing_role = False
             
-            if role.id == og_id:
+            if role.id == role_1:
                 role_str = "Role 2"
                 amount = 3
                 missing_role = False
@@ -277,7 +277,7 @@ async def restart(interaction: nextcord.Interaction):
     view = Wallet()
     embed = nextcord.Embed(title="Wallet Submission", color=nextcord.Color.blurple())
     embed.description=("Click the buttons below to submit and check your wallet address.")
-    # embed.add_field(name="Valid Roles: ", value=f"<@&{og_id}> <@&{whitelist_id}>", inline=False)
+    embed.add_field(name="Valid Roles: ", value=f"<@&{role_1}> <@&{role_2}>", inline=False)
 
     channel = bot.get_channel(channel_id)
 
@@ -302,7 +302,7 @@ async def start(interaction: nextcord.Interaction):
     view = Wallet()
     embed = nextcord.Embed(title="Wallet Submission", color=nextcord.Color.blurple())
     embed.description=("Click the buttons below to submit and check your wallet address.")
-    # embed.add_field(name="Valid Roles: ", value=f"<@&{og_id}> <@&{whitelist_id}>", inline=False)
+    embed.add_field(name="Valid Roles: ", value=f"<@&{role_1}> <@&{role_2}>", inline=False)
 
     channel = bot.get_channel(channel_id)
 

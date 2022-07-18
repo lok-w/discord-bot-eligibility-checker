@@ -1,5 +1,7 @@
 # discord-bot-eligibility-checker
 
+<img src="discord.jpg"/>
+
 This checkbot is for the ETH NFT project to setup a chatbot in their discord server.
 
 The chatbot provides three main functions:
